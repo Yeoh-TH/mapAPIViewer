@@ -1,4 +1,5 @@
-import './index.css'
+import './index.css';
+import L from 'leaflet';
 
 // var url = 'https://apihub.kma.go.kr/api/xml?authKey=YGHzUcOxRdSh81HDsRXULg'; /*URL*/
 
@@ -78,6 +79,8 @@ import './index.css'
 
 const weatherForecastURL = 'https://api-open.data.gov.sg/v2/real-time/api/twenty-four-hr-forecast';
 
+
+
 fetch(weatherForecastURL, {
   method: 'GET',
   headers: {}
@@ -98,7 +101,7 @@ fetch(weatherForecastURL, {
 
     dateDisplay.innerHTML = records.updatedTimestamp;
     forecast.innerHTML = records.general.forecast.text;
-    forecastNight.innerHTML = records.periods[1].regions.west.text;
+    forecastNight.innerHTML = records.periods[0].regions.west.text;
     highTemp.innerHTML = records.general.temperature.high + "ºC";
     lowTemp.innerHTML = records.general.temperature.low + "ºC";
     highHum.innerHTML = records.general.relativeHumidity.high + "%";
@@ -112,11 +115,10 @@ fetch(weatherForecastURL, {
   })
 
 
-
 function App() {
   return (
     <>
-
+      <div id="map"></div>
       <div id="sg">Date</div>
       <div id="valuesDisplay">
         <table style={{ flexShrink: 1 }}>
@@ -148,7 +150,9 @@ function App() {
         </div>
       </div >
     </>
+
   )
 }
+
 
 export default App
