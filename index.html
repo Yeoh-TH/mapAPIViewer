@@ -5,13 +5,23 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/mapAPIViewer/cloud.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API map Viewer</title>
-  <script type="module" crossorigin src="/mapAPIViewer/assets/index-3TQehwq0.js"></script>
-  <link rel="stylesheet" crossorigin href="/mapAPIViewer/assets/index-Cj0XC5NZ.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <title>SG Weather Map</title>
+  <script type="module" crossorigin src="/mapAPIViewer/assets/index-CwEYESWa.js"></script>
+  <link rel="stylesheet" crossorigin href="/mapAPIViewer/assets/index-BU9cyNJR.css">
 </head>
 
 <body>
   <div id="root"></div>
+  <script>
+    var map = L.map('map').setView([0, 0], 13);
+    L.tileLayer('https://www.onemap.gov.sg/maps/tiles/Night/{z}/{x}/{y}.png', { attribution: '<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;" />&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>' }).addTo(map);
+  </script>
 </body>
+
+
 
 </html>
