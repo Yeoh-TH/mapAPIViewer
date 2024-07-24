@@ -5,8 +5,9 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: hsl(0, 0%, 50%);
-
+  background: none;
+  overflow-y: hidden;
+  pointer-events: none;
   /* #0047A0 */
 
   font-synthesis: none;
@@ -16,10 +17,12 @@
 }
 
 #forecastDay {
+  font-size: 2vw;
   text-align: center;
 }
 
 #forecastNight {
+  font-size: 2vw;
   text-align: center;
 }
 
@@ -47,11 +50,11 @@ h1 {
 }
 
 h3 {
-  font-size: 6vw;
+  font-size: 3vw;
 }
 
 h4 {
-  font-size: 4vw;
+  font-size: 2vw;
 }
 
 table,
@@ -59,17 +62,18 @@ th,
 td,
 tr {
   border: 1px solid cyan;
+  background-color: #CD2E3A;
   border-collapse: collapse;
 }
 
 th {
-  font-size: 3vw;
+  font-size: 1vw;
   color: greenyellow;
   padding: 1vw;
 }
 
 td {
-  font-size: 3vw;
+  font-size: 1vw;
   text-align: center;
 }
 
@@ -81,15 +85,15 @@ td {
 }
 
 #sg {
-  width: 100vw;
+  width: 100%;
   background-color: #0047A0;
-  font-size: 2vw;
+  font-size: 6vw;
   text-align: center;
 }
 
 #map {
   width: 100%;
-  z-index: 100;
+  z-index: 0;
 }
 
 @media (prefers-color-scheme: light) {

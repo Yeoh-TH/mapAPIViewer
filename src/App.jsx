@@ -79,7 +79,15 @@ import L from 'leaflet';
 
 const weatherForecastURL = 'https://api-open.data.gov.sg/v2/real-time/api/twenty-four-hr-forecast';
 
-
+document.addEventListener('DOMContentLoaded', function () {
+  var map = L.map('map').setView([1.3521, 103.8198], 12.5);
+  L.tileLayer('https://www.onemap.gov.sg/maps/tiles/Night/{z}/{x}/{y}.png', {
+    detectRetina: true,
+    maxZoom: 19,
+    minZoom: 11,
+    attribution: '<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;" />&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>'
+  }).addTo(map);
+});
 
 fetch(weatherForecastURL, {
   method: 'GET',
@@ -101,7 +109,7 @@ fetch(weatherForecastURL, {
 
     dateDisplay.innerHTML = records.updatedTimestamp;
     forecast.innerHTML = records.general.forecast.text;
-    forecastNight.innerHTML = records.periods[0].regions.west.text;
+    forecastNight.innerHTML = records.periods[1].regions.west.text;
     highTemp.innerHTML = records.general.temperature.high + "ºC";
     lowTemp.innerHTML = records.general.temperature.low + "ºC";
     highHum.innerHTML = records.general.relativeHumidity.high + "%";
@@ -118,10 +126,9 @@ fetch(weatherForecastURL, {
 function App() {
   return (
     <>
-      <div id="map"></div>
-      <div id="sg">Date</div>
+      <div id="sg" style={{ top: 0, position: 'absolute' }}>Date</div>
       <div id="valuesDisplay">
-        <table style={{ flexShrink: 1 }}>
+        <table style={{ flexShrink: 1, bottom: 0, position: 'absolute' }}>
           <tr>
             <th></th>
             <th>Highest</th>
@@ -143,8 +150,8 @@ function App() {
             <td id="lowWind"></td>
           </tr>
         </table>
-        <div style={{ flex: 1, alignSelf: 'center' }}>
-          <h2 style={{ textAlign: 'center' }}>Forecast for today in the West</h2>
+        <div style={{ flex: 1 }}>
+          <h2 style={{ textAlign: 'center', fontSize: '1vw' }}>Forecast for today in the West</h2>
           <h1 id="forecastDay"></h1>
           <h1 id="forecastNight"></h1>
         </div>
