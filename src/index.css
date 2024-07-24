@@ -10,6 +10,9 @@
   pointer-events: none;
   /* #0047A0 */
 
+  --engiOrange: #D00000;
+  --steelBlue: #3F88C5;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -61,14 +64,14 @@ table,
 th,
 td,
 tr {
-  border: 1px solid cyan;
-  background-color: #CD2E3A;
+  border: 1px solid #C6EBBE;
+  background-color: #4c3b4d;
   border-collapse: collapse;
 }
 
 th {
   font-size: 1vw;
-  color: greenyellow;
+  color: #D7B29D;
   padding: 1vw;
 }
 
@@ -78,6 +81,8 @@ td {
 }
 
 #valuesDisplay {
+  bottom: 0;
+  position: 'absolute';
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -86,7 +91,7 @@ td {
 
 #sg {
   width: 100%;
-  background-color: #0047A0;
+  background-color: var(--steelBlue);
   font-size: 6vw;
   text-align: center;
 }

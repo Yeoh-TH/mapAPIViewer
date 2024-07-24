@@ -80,7 +80,7 @@ import L from 'leaflet';
 const weatherForecastURL = 'https://api-open.data.gov.sg/v2/real-time/api/twenty-four-hr-forecast';
 
 document.addEventListener('DOMContentLoaded', function () {
-  var map = L.map('map').setView([1.3521, 103.8198], 12.5);
+  var map = L.map('map').setView([1.3329, 103.7436], 13);
   L.tileLayer('https://www.onemap.gov.sg/maps/tiles/Night/{z}/{x}/{y}.png', {
     detectRetina: true,
     maxZoom: 19,
@@ -127,8 +127,8 @@ function App() {
   return (
     <>
       <div id="sg" style={{ top: 0, position: 'absolute' }}>Date</div>
-      <div id="valuesDisplay">
-        <table style={{ flexShrink: 1, bottom: 0, position: 'absolute' }}>
+      <div id="valuesDisplay" style={{ bottom: 0, position: 'absolute' }}>
+        <table style={{ flex: 1 }}>
           <tr>
             <th></th>
             <th>Highest</th>
@@ -150,7 +150,7 @@ function App() {
             <td id="lowWind"></td>
           </tr>
         </table>
-        <div style={{ flex: 1 }}>
+        <div style={{ flex: 2, alignSelf: 'center' }}>
           <h2 style={{ textAlign: 'center', fontSize: '1vw' }}>Forecast for today in the West</h2>
           <h1 id="forecastDay"></h1>
           <h1 id="forecastNight"></h1>
